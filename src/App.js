@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Exchangedisplay from './Pages/ExchangeDisplay/Exchangedisplay'
+import Header from './Pages/Header/Header'
+import Footer from './Pages/Footer/Footer'
+import Currency from './Pages/CurrencyDisplay/Currency'
+import Trending from './Pages/Trending/Trending'
+import Home from './Pages/Home/Home'
+import SingleCurrencyDisplay from './Pages/SIngleCurrencyDisplay/SingleCurrencyDisplay'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className='w-full h-screen'>
+        <div className='bg-dig-bg w-full h-screen bg-no-repeat bg-cover flex flex-col justify-between '>
+          <Header />
+          <Routes>
+            <Route path='/exchanges' element={<Exchangedisplay />} />
+            <Route path='/' exact element={<Home />} />
+            <Route path='/cryptocurrencies' element={<Currency />} />
+            <Route path='/trending' element={<Trending />} />
+            <Route
+              path='/currencydata/:cryptoid'
+              element={<SingleCurrencyDisplay />}
+            />
+          </Routes>
+          <Footer />
+        </div>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
