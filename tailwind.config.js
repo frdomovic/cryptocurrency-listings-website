@@ -5,6 +5,14 @@ module.exports = {
       backgroundImage: {
         'dig-bg': "url('./Assets/Images/background.jpg')"
       },
+      fontSize: {
+        myfont: [
+          '10px',
+          {
+            lineHeight: '10px'
+          }
+        ]
+      },
       height: theme => ({
         'screen/1': '65vh',
         'screen/2': '50vh',

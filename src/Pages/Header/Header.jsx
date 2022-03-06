@@ -16,45 +16,45 @@ const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
-    <nav className='bg-black bg-opacity-40 flex md:justify-center justify-between items-center p-2 h-15'>
-      <div className='md:flex-[0.5]  flex-initial justify-center items-center text-left pl-10 md:pl-0 '>
+    <nav className='h-15 p-2 justify-between items-center flex bg-black bg-opacity-40 md:justify-center'>
+      <div className='pl-10 flex-initial justify-center items-center text-left md:pl-0 md:flex-[0.5]'>
         <a href='/' className='flex flex-row'>
           <img
             src={logo}
             alt='logo'
-            className='flex w-10 md:w-14 cursor-pointer pt-1'
+            className='w-10 pt-1 flex md:w-14 cursor-pointer '
           />
-          <div className='text-white pt-4 md:pt-3 pl-2 text-lg md:text-3xl md:font-bold'>
+          <div className='pt-4 pl-2 text-white text-lg md:pt-3 md:font-bold md:text-3xl '>
             Xanadu Cipher
           </div>
         </a>
       </div>
-      <ul className='text-white md:flex hidden list-none flex-row justify-between item-center flex-initial'>
+      <ul className='flex-row flex-initial justify-between hidden list-none item-center  text-white md:flex'>
         {['Cryptocurrencies', 'Exchanges', 'Trending'].map((item, index) => (
           <NavBarItem key={item + index} title={item} />
         ))}
       </ul>
-      <div className='flex-relative text-white z-10'>
+      <div className='flex-relative z-10 text-white '>
         {toggleMenu ? (
           <AiOutlineClose
             fontSize={28}
-            className='md:hidden cursor-pointer hover:text-amber-700'
+            className='cursor-pointer md:hidden hover:text-amber-700'
             onClick={() => setToggleMenu(!toggleMenu)}
           />
         ) : (
           <HiMenuAlt4
             fontSize={28}
-            className='md:hidden cursor-pointer hover:text-amber-700'
+            className='cursor-pointer md:hidden hover:text-amber-700'
             onClick={() => setToggleMenu(!toggleMenu)}
           />
         )}
       </div>
       {toggleMenu && (
         <ul
-          className='fixed top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none bg-stone-700 bg-opacity-70
-                flex flex-col justify-start items-end rounded-md text-white animate-slide-in'
+          className='w-[70vw] h-screen fixed top-0 -right-2 p-3  flex flex-col justify-start items-end rounded-md text-white animate-slide-in shadow-2xl  list-none bg-stone-700 bg-opacity-70
+                 md:hidden'
         >
-          <li className='mt-20 text-xl w-full my-2'></li>
+          <li className='w-full my-2 mt-20 text-xl '></li>
           {['Cryptocurrencies', 'Exchanges', 'Trending'].map((item, index) => (
             <NavBarItem
               key={item + index}
